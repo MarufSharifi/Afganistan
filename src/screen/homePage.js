@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {
   View,
   StyleSheet,
@@ -12,38 +12,66 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {useNavigation} from '@react-navigation/native';
 import center from '../assets/home_center.png';
 import side from '../assets/home_side.png';
+import Search from '../assets/svgs/searchIcon';
 
 const {height} = Dimensions.get('screen');
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  const _goToProvince = useCallback(() => {
+    navigation.navigate('province');
+  }, []);
+
   return (
     <View style={styles.container}>
       {/* <StatusBar barStyle="dark-content" /> */}
-      <View style={styles.header}></View>
+      <View style={styles.header}>
+        <Search width={wp(5)} height={wp(5)} fill="#fff" />
+      </View>
       <Image source={side} resizeMode="cover" style={styles.sideImage} />
       <Image source={center} style={styles.centerImage} />
       <View style={styles.cityContainer}>
         <View>
-          <TouchableOpacity activeOpacity={0.9} style={styles.card}>
+          <TouchableOpacity
+            onPress={_goToProvince}
+            activeOpacity={0.9}
+            style={styles.card}>
             <Text>Herat</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.9} style={styles.card}>
+          <TouchableOpacity
+            onPress={_goToProvince}
+            activeOpacity={0.9}
+            style={styles.card}>
             <Text>Kabul</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.9} style={styles.card}>
+          <TouchableOpacity
+            onPress={_goToProvince}
+            activeOpacity={0.9}
+            style={styles.card}>
             <Text>Mezar</Text>
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity activeOpacity={0.9} style={styles.card}>
+          <TouchableOpacity
+            onPress={_goToProvince}
+            activeOpacity={0.9}
+            style={styles.card}>
             <Text>Kandhar</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.9} style={styles.card}>
+          <TouchableOpacity
+            onPress={_goToProvince}
+            activeOpacity={0.9}
+            style={styles.card}>
             <Text>badekh</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.9} style={styles.card}>
+          <TouchableOpacity
+            onPress={_goToProvince}
+            activeOpacity={0.9}
+            style={styles.card}>
             <Text>panj</Text>
           </TouchableOpacity>
         </View>
@@ -62,6 +90,10 @@ const styles = StyleSheet.create({
     width: wp(100),
     height: wp(13),
     backgroundColor: '#242621',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: wp(8),
 
     shadowColor: '#000',
     shadowOffset: {
