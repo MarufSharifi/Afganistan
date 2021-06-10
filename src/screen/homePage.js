@@ -6,6 +6,8 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
+  Pressable,
+  Platform,
 } from 'react-native';
 import Image from 'react-native-fast-image';
 import {
@@ -13,11 +15,15 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
+import {RectButton} from 'react-native-gesture-handler';
 import center from '../assets/home_center.png';
 import side from '../assets/home_side.png';
 import Search from '../assets/svgs/searchIcon';
+import DrawerIcon from '../assets/svgs/DrawerIcon';
 
 const {height} = Dimensions.get('screen');
+
+const Button = Platform.OS === 'android' ? RectButton : Pressable;
 
 const Home = () => {
   const navigation = useNavigation();
@@ -26,11 +32,25 @@ const Home = () => {
     navigation.navigate('province');
   }, []);
 
+  const _goToSearchPage = useCallback(() => {}, []);
+
+  const _openDrawer = useCallback(() => {
+    navigation.openDrawer();
+  }, []);
+
   return (
     <View style={styles.container}>
       {/* <StatusBar barStyle="dark-content" /> */}
       <View style={styles.header}>
-        <Search width={wp(5)} height={wp(5)} fill="#fff" />
+        <Button onPress={_goToSearchPage}>
+          <Search width={wp(5)} height={wp(5)} fill="#fff" />
+        </Button>
+        <Button
+          onPress={_openDrawer}
+          style={styles.openDrawerContainer}
+          activeOpacity={0.8}>
+          <DrawerIcon width={wp(5)} height={wp(5)} fill="#fff" />
+        </Button>
       </View>
       <Image source={side} resizeMode="cover" style={styles.sideImage} />
       <Image source={center} style={styles.centerImage} />
@@ -104,6 +124,12 @@ const styles = StyleSheet.create({
     shadowRadius: 1.41,
 
     elevation: 2,
+  },
+  openDrawerContainer: {
+    width: wp(10),
+    height: wp(10),
+    alignItems: 'flex-end',
+    justifyContent: 'center',
   },
   sideImage: {
     flex: 1,

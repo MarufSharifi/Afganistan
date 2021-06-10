@@ -2,6 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screen/homePage';
+import NavigationDrawer from '../routes/navigationDrawer';
 import Province from '../screen/Province';
 import Description from '../screen/districtDescription';
 
@@ -12,7 +13,7 @@ const MainNavigation = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="homePage"
-          component={Home}
+          component={NavigationDrawer}
           options={{headerShown: false}}
         />
         <Stack.Screen
