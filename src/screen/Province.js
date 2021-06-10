@@ -4,13 +4,24 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {useNavigation} from '@react-navigation/native';
 import Background from '../assets/svgs/SecondaryPageBackground';
 
 const Province = () => {
+  const navigation = useNavigation();
+
+  const _goToDescription = useCallback(() => {
+    navigation.navigate('description');
+  }, []);
+
   const _renderItem = useCallback(() => {
     return (
-      <TouchableOpacity style={styles.itemContainer}>
-        <Text>Karukh</Text>
+      <TouchableOpacity
+        activeOpacity={0.9}
+        style={styles.itemContainer}
+        onPress={_goToDescription}>
+        <Text>هرات</Text>
+        <Text numberOfLines={2}>شهر هرات دارای ۱۸ ولسوالی است</Text>
       </TouchableOpacity>
     );
   }, []);
@@ -21,7 +32,7 @@ const Province = () => {
 
   return (
     <View style={styles.container}>
-      <Background width={wp(50)} height={hp(100)} />
+      <Background width={wp(40)} height={hp(100)} />
       <FlatList
         data={[1, 3, 4, 5]}
         renderItem={_renderItem}
@@ -41,14 +52,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   itemContainer: {
-    backgroundColor: '#EDFCD3',
-    width: wp(40),
-    height: wp(15),
-    borderColor: '#C2CAB0',
-    borderWidth: wp(0.3),
+    backgroundColor: '#fff',
+    width: wp(50),
+    height: wp(20),
+    borderRadius: wp(2),
+    // borderColor: '#C2CAB0',
+    // borderWidth: wp(0.3),
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: wp(5),
+    paddingVertical: wp(2),
     marginVertical: wp(4),
     marginLeft: wp(5),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
   },
 });
