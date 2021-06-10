@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 import Home from '../screen/homePage';
-import NavigationDrawer from '../routes/navigationDrawer';
+import NavigationDrawer from './navigationDrawer';
 import Province from '../screen/Province';
 import Description from '../screen/districtDescription';
 

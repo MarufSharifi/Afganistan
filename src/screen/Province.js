@@ -32,12 +32,12 @@ const Province = () => {
 
   return (
     <View style={styles.container}>
-      <Background width={wp(40)} height={hp(100)} />
       <FlatList
         data={[1, 3, 4, 5]}
         renderItem={_renderItem}
         keyExtractor={_key}
       />
+      <Background width={wp(40)} height={hp(100)} />
     </View>
   );
 };
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     // borderColor: '#C2CAB0',
     // borderWidth: wp(0.3),
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     paddingHorizontal: wp(5),
     paddingVertical: wp(2),
     marginVertical: wp(4),

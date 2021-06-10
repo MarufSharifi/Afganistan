@@ -42,14 +42,14 @@ const Home = () => {
     <View style={styles.container}>
       {/* <StatusBar barStyle="dark-content" /> */}
       <View style={styles.header}>
-        <Button onPress={_goToSearchPage}>
-          <Search width={wp(5)} height={wp(5)} fill="#fff" />
-        </Button>
         <Button
           onPress={_openDrawer}
           style={styles.openDrawerContainer}
           activeOpacity={0.8}>
           <DrawerIcon width={wp(5)} height={wp(5)} fill="#fff" />
+        </Button>
+        <Button onPress={_goToSearchPage}>
+          <Search width={wp(5)} height={wp(5)} fill="#fff" />
         </Button>
       </View>
       <Image source={side} resizeMode="cover" style={styles.sideImage} />
