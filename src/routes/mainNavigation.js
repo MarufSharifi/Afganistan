@@ -28,7 +28,6 @@ const MainNavigation = () => {
     <Stack.Navigator
       screenOptions={{
         headerTopInsetEnabled: false,
-        direction: 'rtl',
         gestureEnabled: true,
       }}>
       <Stack.Screen
