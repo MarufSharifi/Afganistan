@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {
   View,
   StyleSheet,
@@ -16,6 +16,7 @@ import {
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import {RectButton} from 'react-native-gesture-handler';
+import {LocalizationContext} from '../contexts/LocalizationContext';
 import center from '../assets/home_center.png';
 import side from '../assets/home_side.png';
 import Search from '../assets/svgs/searchIcon';
@@ -27,6 +28,8 @@ const Button = Platform.OS === 'android' ? RectButton : Pressable;
 
 const Home = () => {
   const navigation = useNavigation();
+
+  const {translations} = useContext(LocalizationContext);
 
   const _goToProvince = useCallback(() => {
     navigation.navigate('province');
@@ -52,7 +55,12 @@ const Home = () => {
           <Search width={wp(5)} height={wp(5)} fill="#fff" />
         </Button>
       </View>
-      <Image source={side} resizeMode="cover" style={styles.sideImage} />
+      <Image
+        source={side}
+        resizeMode="cover"
+        style={styles.sideImage}
+        blurRadius={100}
+      />
       <Image source={center} style={styles.centerImage} />
       <View style={styles.cityContainer}>
         <View>
@@ -60,7 +68,7 @@ const Home = () => {
             onPress={_goToProvince}
             activeOpacity={0.9}
             style={styles.card}>
-            <Text>Herat</Text>
+            <Text>{translations?.homePage.herat}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={_goToProvince}
@@ -113,7 +121,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: wp(8),
+    // paddingHorizontal: wp(8),
+    paddingStart: wp(4),
+    paddingEnd: wp(8),
 
     shadowColor: '#000',
     shadowOffset: {

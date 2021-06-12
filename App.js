@@ -7,10 +7,18 @@
  */
 
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import MainNavigation from './src/routes/mainNavigation';
+import {LocalizationProvider} from './src/contexts/LocalizationContext';
 
 const App = () => {
-  return <MainNavigation />;
+  return (
+    <NavigationContainer>
+      <LocalizationProvider>
+        <MainNavigation />
+      </LocalizationProvider>
+    </NavigationContainer>
+  );
 };
 
 export default App;

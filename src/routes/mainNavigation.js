@@ -1,6 +1,5 @@
 import React from 'react';
 import {Platform} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 import Home from '../screen/homePage';
@@ -26,34 +25,32 @@ if (Platform.OS === 'ios') {
 
 const MainNavigation = () => {
   return (
-    <NavigationContainer
+    <Stack.Navigator
       screenOptions={{
         headerTopInsetEnabled: false,
         direction: 'rtl',
         gestureEnabled: true,
       }}>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="homePage"
-          component={NavigationDrawer}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="province"
-          component={Province}
-          options={{
-            title: 'province',
-          }}
-        />
-        <Stack.Screen
-          name="description"
-          component={Description}
-          options={{
-            title: 'ولسوالی',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <Stack.Screen
+        name="homePage"
+        component={NavigationDrawer}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="province"
+        component={Province}
+        options={{
+          title: 'province',
+        }}
+      />
+      <Stack.Screen
+        name="description"
+        component={Description}
+        options={{
+          title: 'ولسوالی',
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 
