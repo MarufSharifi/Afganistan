@@ -42,9 +42,10 @@ const Home = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      {/* <StatusBar barStyle="dark-content" /> */}
-      <View style={styles.header}>
+    <>
+      <StatusBar backgroundColor="#fafafa" barStyle="dark-content" />
+      <View style={styles.container}>
+        {/* <View style={styles.header}>
         <Button
           onPress={_openDrawer}
           style={styles.openDrawerContainer}
@@ -54,57 +55,58 @@ const Home = () => {
         <Button onPress={_goToSearchPage}>
           <Search width={wp(5)} height={wp(5)} fill="#fff" />
         </Button>
-      </View>
-      <Image
-        source={side}
-        resizeMode="cover"
-        style={styles.sideImage}
-        blurRadius={100}
-      />
-      <Image source={center} style={styles.centerImage} />
-      <View style={styles.cityContainer}>
-        <View>
-          <TouchableOpacity
-            onPress={_goToProvince}
-            activeOpacity={0.9}
-            style={styles.card}>
-            <Text>{translations?.homePage.herat}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={_goToProvince}
-            activeOpacity={0.9}
-            style={styles.card}>
-            <Text>Kabul</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={_goToProvince}
-            activeOpacity={0.9}
-            style={styles.card}>
-            <Text>Mezar</Text>
-          </TouchableOpacity>
+      </View> */}
+        <Image
+          source={side}
+          resizeMode="cover"
+          style={styles.sideImage}
+          blurRadius={100}
+        />
+        <Image source={center} style={styles.centerImage} />
+        <View style={styles.cityContainer}>
+          <View>
+            <TouchableOpacity
+              onPress={_goToProvince}
+              activeOpacity={0.9}
+              style={styles.card}>
+              <Text>{translations?.homePage.herat}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={_goToProvince}
+              activeOpacity={0.9}
+              style={styles.card}>
+              <Text>Kabul</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={_goToProvince}
+              activeOpacity={0.9}
+              style={styles.card}>
+              <Text>Mezar</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity
+              onPress={_goToProvince}
+              activeOpacity={0.9}
+              style={styles.card}>
+              <Text>Kandhar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={_goToProvince}
+              activeOpacity={0.9}
+              style={styles.card}>
+              <Text>badekh</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={_goToProvince}
+              activeOpacity={0.9}
+              style={styles.card}>
+              <Text>panj</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View>
-          <TouchableOpacity
-            onPress={_goToProvince}
-            activeOpacity={0.9}
-            style={styles.card}>
-            <Text>Kandhar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={_goToProvince}
-            activeOpacity={0.9}
-            style={styles.card}>
-            <Text>badekh</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={_goToProvince}
-            activeOpacity={0.9}
-            style={styles.card}>
-            <Text>panj</Text>
-          </TouchableOpacity>
-        </View>
       </View>
-    </View>
+    </>
   );
 };
 

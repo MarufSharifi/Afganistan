@@ -47,14 +47,14 @@ function ChangeLanguage(props) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <Button
           onPress={_openDrawer}
           style={styles.openDrawerContainer}
           activeOpacity={0.8}>
           <DrawerIcon width={wp(5)} height={wp(5)} fill="#fff" />
         </Button>
-      </View>
+      </View> */}
       <Text style={styles.chooseLanguage}>زبان خود را انتخاب کنید</Text>
       <Button onPress={chooseFa} style={styles.button}>
         <Text>فارسی</Text>

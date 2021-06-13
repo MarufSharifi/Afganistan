@@ -1,11 +1,15 @@
-import * as React from 'react';
-import {View} from 'react-native';
+import React, {useCallback} from 'react';
+import {View, Platform, Pressable} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
+import {RectButton} from 'react-native-gesture-handler';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import Search from '../assets/svgs/searchIcon';
 import Home from '../screen/homePage';
 import ChangeLanguage from '../screen/selectLanguage';
 
 const Drawer = createDrawerNavigator();
+
+const Button = Platform.OS === 'android' ? RectButton : Pressable;
 
 export default function NavigationDrawer() {
   return (
@@ -13,8 +17,12 @@ export default function NavigationDrawer() {
       drawerPosition="right"
       //   hideStatusBar={true}
       initialRouteName="Home">
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Languages" component={ChangeLanguage} />
+      <Drawer.Screen name="Home" component={Home} options={{title: 'خانه'}} />
+      <Drawer.Screen
+        name="Languages"
+        component={ChangeLanguage}
+        options={{title: 'زبان'}}
+      />
     </Drawer.Navigator>
   );
 }
