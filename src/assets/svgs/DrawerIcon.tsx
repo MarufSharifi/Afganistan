@@ -12,7 +12,7 @@ function SvgComponent(props: SvgProps) {
       {...props}>
       <Path
         d="M.562 4.531h11.439a.5.5 0 110 1H.562a.5.5 0 110-1zM.562 0h11.439a.5.5 0 110 1H.562a.5.5 0 110-1zM.562 8.674h11.439a.5.5 0 110 1H.562a.5.5 0 110-1z"
-        fill="#fff"
+        fill={props?.fill}
       />
     </Svg>
   );

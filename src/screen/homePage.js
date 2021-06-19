@@ -13,6 +13,7 @@ import {
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import {BlurView} from '@react-native-community/blur';
+import Icon from '../assets/svgs/DrawerIcon';
 import {LocalizationContext} from '../contexts/LocalizationContext';
 import center from '../assets/home_center.png';
 import side from '../assets/home_side.png';
@@ -49,18 +50,21 @@ const Home = () => {
               onPress={_goToProvince}
               activeOpacity={0.9}
               style={styles.card}>
+              <Icon fill="#000" />
               <Text>{translations?.homePage.herat}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={_goToProvince}
               activeOpacity={0.9}
               style={styles.card}>
+              <Icon fill="#000" />
               <Text>Kabul</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={_goToProvince}
               activeOpacity={0.9}
               style={styles.card}>
+              <Icon fill="#000" />
               <Text>Mezar</Text>
             </TouchableOpacity>
           </View>
@@ -69,18 +73,21 @@ const Home = () => {
               onPress={_goToProvince}
               activeOpacity={0.9}
               style={styles.card}>
+              <Icon fill="#000" />
               <Text>Kandhar</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={_goToProvince}
               activeOpacity={0.9}
               style={styles.card}>
+              <Icon fill="#000" />
               <Text>badekh</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={_goToProvince}
               activeOpacity={0.9}
               style={styles.card}>
+              <Icon fill="#000" />
               <Text>panj</Text>
             </TouchableOpacity>
           </View>
