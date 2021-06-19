@@ -41,20 +41,12 @@ function ChangeLanguage(props) {
     });
   };
 
-  const _openDrawer = useCallback(() => {
-    navigation.openDrawer();
-  });
+  const _finalPress = useCallback(() => {
+    navigation.goBack();
+  }, []);
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.header}>
-        <Button
-          onPress={_openDrawer}
-          style={styles.openDrawerContainer}
-          activeOpacity={0.8}>
-          <DrawerIcon width={wp(5)} height={wp(5)} fill="#fff" />
-        </Button>
-      </View> */}
       <Text style={styles.chooseLanguage}>زبان خود را انتخاب کنید</Text>
       <Button onPress={chooseFa} style={styles.button}>
         <Text>فارسی</Text>
@@ -71,6 +63,9 @@ function ChangeLanguage(props) {
         ) : (
           <RadioButton width={wp(6)} height={wp(6)} />
         )}
+      </Button>
+      <Button style={styles.acceptButton} onPress={_finalPress}>
+        <Text style={styles.acceptText}>تایید</Text>
       </Button>
     </View>
   );
@@ -123,4 +118,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     borderRadius: wp(5),
   },
+  acceptButton: {
+    backgroundColor: '#fafafa',
+    alignSelf: 'flex-end',
+    paddingVertical: wp(2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
+    marginHorizontal: wp(5),
+  },
+  acceptText: {},
 });

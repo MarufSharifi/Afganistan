@@ -2,12 +2,9 @@ import React, {useCallback, useContext} from 'react';
 import {
   View,
   StyleSheet,
-  Dimensions,
   StatusBar,
   Text,
   TouchableOpacity,
-  Pressable,
-  Platform,
 } from 'react-native';
 import Image from 'react-native-fast-image';
 import {
@@ -15,16 +12,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
-import {RectButton} from 'react-native-gesture-handler';
+import {BlurView} from '@react-native-community/blur';
 import {LocalizationContext} from '../contexts/LocalizationContext';
 import center from '../assets/home_center.png';
 import side from '../assets/home_side.png';
-import Search from '../assets/svgs/searchIcon';
-import DrawerIcon from '../assets/svgs/DrawerIcon';
-
-const {height} = Dimensions.get('screen');
-
-const Button = Platform.OS === 'android' ? RectButton : Pressable;
 
 const Home = () => {
   const navigation = useNavigation();
@@ -35,32 +26,21 @@ const Home = () => {
     navigation.navigate('province');
   }, []);
 
-  const _goToSearchPage = useCallback(() => {}, []);
-
-  const _openDrawer = useCallback(() => {
-    navigation.openDrawer();
-  }, []);
-
   return (
     <>
       <StatusBar backgroundColor="#fafafa" barStyle="dark-content" />
       <View style={styles.container}>
-        {/* <View style={styles.header}>
-        <Button
-          onPress={_openDrawer}
-          style={styles.openDrawerContainer}
-          activeOpacity={0.8}>
-          <DrawerIcon width={wp(5)} height={wp(5)} fill="#fff" />
-        </Button>
-        <Button onPress={_goToSearchPage}>
-          <Search width={wp(5)} height={wp(5)} fill="#fff" />
-        </Button>
-      </View> */}
         <Image
           source={side}
           resizeMode="cover"
           style={styles.sideImage}
           blurRadius={100}
+        />
+        <BlurView
+          style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+          blurType="light"
+          blurAmount={1}
+          reducedTransparencyFallbackColor="white"
         />
         <Image source={center} style={styles.centerImage} />
         <View style={styles.cityContainer}>

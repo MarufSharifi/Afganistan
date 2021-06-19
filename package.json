@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/blur": "^3.6.0",
     "@react-native-masked-view/masked-view": "^0.2.4",
     "@react-navigation/drawer": "^6.0.0-next.17",
     "@react-navigation/native": "^6.0.0-next.13",
